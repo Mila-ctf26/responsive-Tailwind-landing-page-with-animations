@@ -1,5 +1,5 @@
 # DE: Automatische Veröffentlichung auf GitHub Pages
-git 
+
 name: Deploy Vite to GitHub Pages
 
 on:
