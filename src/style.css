@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/* DE: Buchstaben springen nacheinander */
+
+@keyframes letterJump {
+  0%, 10%, 100% {
+    transform: translateY(0);
+  }
+
+  5% {
+    transform: translateY(-25px);
+  }
+}
+
+.jump-letter {
+  display: inline-block;
+  animation: letterJump 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jump-letter {
+    animation: none;
+  }
+}
+
+/* DE: Fallende Glitzerpartikel */
+/* UA: Падаючі блискітки */
+
+@keyframes sparkleFall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* DE: Aussehen der Glitzerpartikel */
+
+.sparkle {
+  position: absolute;
+  top: 0;
+  width: 6px;
+  height: 6px;
+  background: #ffe8a3;
+  border-radius: 50%;
+  box-shadow:
+    0 0 8px 3px rgba(255, 230, 150, 0.8),
+    0 0 18px rgba(255, 255, 255, 0.6);
+
+  opacity: 0;
+  animation: sparkleFall 7s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle {
+    animation: none;
+    display: none;
+  }
+}
+
+/* DE: Runde Glitzerpartikel */
+
+.sparkle-circle {
+  border-radius: 50%;
+}
+
+/* DE: Seitliche Bewegung der Glaskarten */
+
+@keyframes glassSway {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(15px);
+  }
+}
+
+/* DE: Jede Karte bewegt sich anders */
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+
+  .glass-card:nth-child(1) {
+    animation: glassSway 5s ease-in-out infinite;
+  }
+
+  .glass-card:nth-child(2) {
+    animation: glassSway 6s ease-in-out infinite reverse;
+  }
+
+  .glass-card:nth-child(3) {
+    animation: glassSway 7s ease-in-out infinite;
+    animation-delay: -2s;
+  }
+}

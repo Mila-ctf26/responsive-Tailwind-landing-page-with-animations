@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css">
+    <title>responsive-landingpage-mit-tailwind-css</title>
+  </head>
+  <body>
+<!-- forked from: https://codepen.io/cuonoj/pen/JjPmMaB -->
+
+<section class="relative h-screen overflow-hidden flex flex-col items-center justify-center text-center text-white ">
+    <div class="video-docker absolute top-0 left-0 w-full h-full overflow-hidden">
+        <video class="min-w-full min-h-full absolute object-cover" id="hero-video"
+            src="/hero-video.mp4"
+            type="video/mp4" autoplay muted loop playsinline></video>
+    </div>
+    <div class="video-content relative z-10 text-center translate-y-26">
+  
+
+
+  <button
+    id="sound-btn"
+    type="button"
+    class="mt-12 px-8 py-3 bg-white/20 text-white
+           border border-white/50 rounded-full
+           backdrop-blur-md shadow-lg
+           hover:bg-white/40 transition duration-300
+           cursor-pointer">
+    🔊 Ton einschalten
+  </button>
+</div>
+
+<!-- DE: Responsive Überschriften -->
+<div class="absolute bottom-0 left-0 w-full z-20
+            flex flex-col items-end gap-2 px-3">
+
+  <h3 class="text-base sm:text-xl md:text-2xl
+             lg:text-[30px] font-normal text-white">
+    mit TailwindCSS!
+  </h3>
+
+  <h1 id="animated-title"
+      class="w-full text-center
+             text-[clamp(2.5rem,10vw,8.375rem)]
+             lg:text-[133px]
+             font-bold uppercase text-white
+             leading-none">
+    Juhu! Mein erstes Projekt
+  </h1>
+
+</div>
+
+<!-- DE: Ebene für fallende Glitzerpartikel -->
+<div
+  id="sparkles"
+  class="absolute inset-0 overflow-hidden pointer-events-none z-[5]"
+  aria-hidden="true">
+</div>
+
+<!-- DE: Drei animierte Glaskarten -->
+
+<div class="absolute top-4 right-4 w-[210px]
+            sm:w-[240px]
+            md:top-20 md:right-10 md:w-[260px]
+            lg:w-80
+            z-20 hidden lg:grid gap-5 text-left">
+
+  <!-- Karte 1: Video -->
+  <div class="glass-card rounded-2xl border
+       border-white/50 bg-white/10
+       backdrop-blur-sm shadow-lg
+       p-3 md:p-5 text-white
+       hover:bg-white/20 transition-colors duration-300">
+
+    <h2 class="text-xl font-semibold uppercase mb-2">
+       Videohintergrund
+    </h2>
+
+    <p class="text-base">
+      Ein modernes Video mit Musik.
+    </p>
+  </div>
+
+  <!-- Karte 2: Animationen -->
+  <div class="glass-card rounded-2xl border
+              border-white/50 bg-white/20
+              backdrop-blur-lg shadow-xl
+              p-3 md:p-5 text-white
+              hover:bg-white/30 transition-colors">
+
+    <h2 class="text-xl font-semibold uppercase mb-2">
+       Animationen
+    </h2>
+
+    <p class="text-base">
+      Bewegte Buchstaben und Lichteffekte.
+    </p>
+  </div>
+
+  <!-- Karte 3: Responsive -->
+  <div class="glass-card rounded-2xl border
+              border-white/50 bg-white/20
+              backdrop-blur-lg shadow-xl
+              p-3 md:p-5 text-white
+              hover:bg-white/30 transition-colors">
+
+    <h2 class="text-xl font-semibold uppercase mb-2">
+       Responsive Design
+    </h2>
+
+    <p class="text-base">
+      Optimiert für verschiedene Bildschirmgrößen.
+    </p>
+  </div>
+
+</div>
+
+<!-- DE: Aufklappbare Karten für Handy und Tablet -->
+<div class="absolute top-4 left-1/2 -translate-x-1/2
+            w-[210px] sm:w-[240px]
+            md:top-10 md:w-[260px]
+            z-20 grid gap-2 lg:hidden text-left">
+
+  <details class="glass-card group rounded-2xl border
+                  border-white/50 bg-white/10
+                  backdrop-blur-sm p-3 text-white">
+
+    <summary class="cursor-pointer font-semibold uppercase text-sm">
+      Videohintergrund
+    </summary>
+
+    <p class="mt-3 text-sm">
+      Ein modernes Video mit Musik.
+    </p>
+  </details>
+
+  <details class="glass-card group rounded-2xl border
+                  border-white/50 bg-white/10
+                  backdrop-blur-sm p-3 text-white">
+
+    <summary class="cursor-pointer font-semibold uppercase text-sm">
+      Animationen
+    </summary>
+
+    <p class="mt-3 text-sm">
+      Bewegte Buchstaben und Lichteffekte.
+    </p>
+  </details>
+
+  <details class="glass-card group rounded-2xl border
+                  border-white/50 bg-white/10
+                  backdrop-blur-sm p-3 text-white">
+
+    <summary class="cursor-pointer font-semibold uppercase text-sm">
+      Responsive Design
+    </summary>
+
+    <p class="mt-3 text-sm">
+      Optimiert für verschiedene Bildschirmgrößen.
+    </p>
+  </details>
+
+</div>
+
+</section>
+
+
+<style>
+    .video-docker video {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .video-docker::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.15);
+        z-index: 1;
+    }
+</style>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
